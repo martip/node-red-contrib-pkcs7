@@ -1,0 +1,54 @@
+<script type="text/html" data-template-name="pkcs7">
+  <div class="form-row">
+      <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+      <input type="text" id="node-input-name" placeholder="Name">
+  </div>
+</script>
+
+<script type="text/html" data-help-name="pkcs7">
+  <p>A function that parses the <code>msg.payload</code>, expected to be an envelope in PKCS #7 format, and extracts the underlying file.</p>
+  <h3>Inputs</h3>
+  <dl class="message-properties">
+    <dt>payload <span class="property-type">buffer</span></dt>
+    <dd>The buffer of the PKCS #7 file (envelope).</dd>
+  </dl>
+
+  <h3>Outputs</h3>
+
+  <dl class="message-properties">
+    <dt>filename <span class="property-type">string</span></dt>
+    <dd>The name of the extracted file.</dd>
+  </dl>
+  <dl class="message-properties">
+    <dt>payload <span class="property-type">buffer</span></dt>
+    <dd>The buffer of the extracted file.</dd>
+  </dl>
+  <h3>Details</h3>
+  <p>
+    This node is based on the <b>extractCMS</b> package, by Lapo Luchini. It supports DER, PEM and bare Base64 input.
+  </p>
+  <h3>References</h3>
+  <ul>
+    <li><a href="https://www.npmjs.com/package/@lapo/extractcms">extractCMS</a> - CMS (PKCS#7) SignedData extraction functions, by Lapo Luchini.</li>
+  </ul>
+</script>
+
+<script type="text/javascript">
+  RED.nodes.registerType('pkcs7',{
+      category: 'parser',
+      color:'#DEBD5C',
+      defaults: {
+          name: { value: '' }
+      },
+      inputs: 1,
+      outputs: 1,
+      icon: 'pkcs7.svg',
+      label: function() {
+        return this.name || 'pkcs #7' ;
+      },
+      labelStyle: function() {
+        return this.name ? 'node_label_italic' : '';
+      },
+      paletteLabel: 'pkcs #7'
+  });
+</script>
