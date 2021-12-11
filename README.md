@@ -1,6 +1,6 @@
 # node-red-contrib-pkcs7
 
-A [Node-RED](http://nodered.org/) that parses a PKCS #7 (envelope) file and extracts the underlying file.  
+A [Node-RED](http://nodered.org/) node that parses a PKCS #7 (envelope) file and extracts the underlying file.  
 It supports DER, PEM and bare Base64 input.
 
 This node is based on the **[extractCMS](https://www.npmjs.com/package/@lapo/extractcms)** package, by Lapo Luchini.
